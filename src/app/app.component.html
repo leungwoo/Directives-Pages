@@ -11,15 +11,15 @@
     <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
       <a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
     </li>
-    <li
-      class="page-item"
-      [ngClass]="{ active: i === currentPage }"
-      *ngFor="let image of images; index as i"
-    >
-      <a *ngIf="i < 5" (click)="currentPage = i" class="page-link">{{
-        i + 1
-      }}</a>
-    </li>
+    <ng-container *ngFor="let image of images; let i = index">
+      <li
+        class="page-item"
+        [ngClass]="{ active: i === currentPage }"
+        *ngIf="checkWindowIndex(i)"
+      >
+        <a (click)="currentPage = i" class="page-link">{{ i + 1 }}</a>
+      </li>
+    </ng-container>
     <li
       class="page-item"
       [ngClass]="{ disabled: currentPage === images.length - 1 }"
@@ -28,9 +28,11 @@
     </li>
   </ul>
 </nav>
-<div class="card mt-3" style="width: 40rem">
+<div class="card mt-3" style="width: 40rem" appClass [backgroundColor]="'red'">
   <img [src]="images[currentPage].url" />
   <div class="card-body">
-    <h4 class="card-title">{{ images[currentPage].title }}</h4>
+    <h4 class="card-title">
+      {{ images[currentPage].title }}
+    </h4>
   </div>
 </div>

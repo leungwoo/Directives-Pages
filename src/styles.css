@@ -1,1 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.css";
+
+.highlight {
+  border: solid 3px steelblue;
+}

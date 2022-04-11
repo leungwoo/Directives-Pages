@@ -94,5 +94,7 @@ export class AppComponent {
     },
   ];
 
-  onClick() {}
+  checkWindowIndex(index: number) {
+    return Math.abs(this.currentPage - index) < 5;
+  }
 }
