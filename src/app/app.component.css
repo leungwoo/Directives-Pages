@@ -1,3 +1,6 @@
-:host {
-  display: flex;
+.pagination {
+  justify-content: center;
+}
+.card {
+  margin: 0 auto;
 }
