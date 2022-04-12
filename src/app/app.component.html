@@ -11,6 +11,7 @@
     <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
       <a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
     </li>
+    <!--ng container allows to dd more than one directive-->
     <ng-container *ngFor="let image of images; let i = index">
       <li
         class="page-item"
@@ -28,7 +29,7 @@
     </li>
   </ul>
 </nav>
-<div class="card mt-3" style="width: 40rem" appClass [backgroundColor]="'red'">
+<div class="card mt-3" style="width: 40rem" [appClass]="'red'">
   <img [src]="images[currentPage].url" />
   <div class="card-body">
     <h4 class="card-title">
@@ -36,3 +37,7 @@
     </h4>
   </div>
 </div>
+
+<ul *appTimes="5">
+  <li>Hi There!</li>
+</ul>

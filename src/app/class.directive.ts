@@ -17,7 +17,13 @@ export class ClassDirective {
   @HostListener('mouseleave') onmouseleave() {
     this.renderer.removeClass(this.element.nativeElement, 'highlight');
   }
-  @Input() set backgroundColor(color: string) {
-    this.element.nativeElement.style.backgroundColor = color;
+  @Input('appClass') set classNames(classObj: any) {
+    for (let key in classObj) {
+      if (classObj[key]) {
+        this.element.nativeElement.classlist.add(key);
+      } else {
+        this.element.nativeElement.classlist.remove(key);
+      }
+    }
   }
 }
