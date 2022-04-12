@@ -12,7 +12,8 @@
       <a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
     </li>
     <!--ng container allows to dd more than one directive-->
-    <ng-container *ngFor="let image of images; let i = index">
+    <!-- <ng-container *ngFor="let image of images; let i = index"> -->
+    <ng-container *appTimes="images.length; index as i">
       <li
         class="page-item"
         [ngClass]="{ active: i === currentPage }"
